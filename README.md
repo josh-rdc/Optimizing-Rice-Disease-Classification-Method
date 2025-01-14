@@ -11,7 +11,7 @@ The detailed dataset, methodology, and results will be discussed in the followin
 
 
 ## Dataset
-The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with sample shown below. 
+The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with samples shown below. 
 | **paddy**               | **zoomed-in** | **processed** |
 |---------------------------|------------------|-----------------------|
 | ![assets/paddy.jpg](Assets/paddy.jpg) | ![assets/zoomed.jpg](Assets/zoomed.jpg) | ![assets/preprocessed.jpg](Assets/preprocessed.jpg) |
@@ -40,6 +40,15 @@ The `resized_raw_images` folder, which consists of original images for all 14 cl
 | Stem rot                  | 12               | 100                   |
 | Tungro virus              | 13               | 100                   |
 
+## Features
+The jpeg images were translated to BGR images before converting to the needed color space to extract the input features for the model. The conversion was done by making use of OpenCV’s [CV2](https://docs.opencv.org/3.4/d8/d01/group\_\_imgproc\\\_\_color\_\_conversions.html). Specific details of the color spaces used to extract each feature are detailed in the table below:
+
+ | **Feature Type**               | **Color Space** | **Details** |
+|---------------------------|------------------|-----------------------|
+| Texture |	Grayscale |	Derived from the Grey Level Co-occurrence Matrix (GLCM) which were extracted using the [Mahotas library](https://mahotas.readthedocs.io/en/latest/features.html). These features encodes patterns such as contrast, correlation, energy, and homogeneity. |
+| Color Histogram |	RGB, HSV, LAB | Provides pixel distribution across color spaces which were split into individual channels. Calculated by computing the number of pixels for each histogram bins. |
+| Color Moments |	RGB, HSV, LAB |	Offers compact color representation through statistical measures such as mean, variance, skewness, and kurtosis. Each value were computed for each channel using [NumPy](https://numpy.org/). |
+| Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness in describing images effectivle due to being invariant shape descriptors. Vectores were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/\\scipy.special.legendre.html) for Legendre. |
 
 <!-- 
 ![Resources/[AI%20201]%20MINIPROJECT%20(1).png](Resources/[AI%20201]%20MINIPROJECT%20(1).png)
