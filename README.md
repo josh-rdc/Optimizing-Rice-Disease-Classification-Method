@@ -8,7 +8,14 @@ Rice, often considered the staple of life in the Philippines, plays an integral 
 This project introduces a novel and efficient approach for classifying 13 rice diseases, as compared to the usual 2-3 diseases focused by local and international studies, by analyzing entire images without requiring complex pre-processing and segmentation steps. By leveraging global image features, including color, shape, and texture, the study trained SVM and ANN models, achieving classification accuracies of **86.23%** and **83.93%**, respectively. 
 
 The detailed dataset, methodology, and results will be discussed in the following sections.
-
+- [Dataset](#dataset)
+- [Feature Extraction and Processing](#feature-extraction-and-processing)
+- [Training and Tuning](#training-and-tuning)
+- [Experiments](#experiments)
+- [Results and Discussion](#results-and-discussion)
+- [Conclusion and Recommendations](#conclusion-and-recommendations)
+- [References](#references)
+- [Citation](#citation)
 
 ## Dataset
 The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with samples shown below. 
@@ -40,7 +47,7 @@ The `resized_raw_images` folder, which consists of original images for all 14 cl
 | Stem rot                  | 12               | 100                   |
 | Tungro virus              | 13               | 100                   |
 
-## Features
+## Feature Extraction and Processing
 The jpeg images were translated to BGR images before converting to the needed color space to extract the input features for the model. The conversion was done by making use of OpenCV’s [CV2](https://docs.opencv.org/3.4/d8/d01/group\_\_imgproc\\\_\_color\_\_conversions.html). Specific details of the color spaces used to extract each feature are detailed in the table below:
 
  | **Feature Type**               | **Color Space** | **Details** |
@@ -48,7 +55,19 @@ The jpeg images were translated to BGR images before converting to the needed co
 | Texture |	Grayscale |	Derived from the Grey Level Co-occurrence Matrix (GLCM) which were extracted using the [Mahotas library](https://mahotas.readthedocs.io/en/latest/features.html). These features encodes patterns such as contrast, correlation, energy, and homogeneity. |
 | Color Histogram |	RGB, HSV, LAB | Provides pixel distribution across color spaces which were split into individual channels. Calculated by computing the number of pixels for each histogram bins. |
 | Color Moments |	RGB, HSV, LAB |	Offers compact color representation through statistical measures such as mean, variance, skewness, and kurtosis. Each value were computed for each channel using [NumPy](https://numpy.org/). |
-| Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness in describing images effectivle due to being invariant shape descriptors. Vectores were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/\\scipy.special.legendre.html) for Legendre. |
+| Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness in describing images effectivle due to being invariant shape descriptors. Vectors were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/\\scipy.special.legendre.html) for Legendre. |
+
+## Training and Tuning
+
+## Experiments
+
+## Results and Discussion
+
+## Conclusion and Recommendations
+
+## References
+
+-- in-progress
 
 <!-- 
 ![Resources/[AI%20201]%20MINIPROJECT%20(1).png](Resources/[AI%20201]%20MINIPROJECT%20(1).png)
@@ -77,7 +96,7 @@ The jpeg images were translated to BGR images before converting to the needed co
 ![Resources/[AI%20201]%20MINIPROJECT%20(24).png](Resources/[AI%20201]%20MINIPROJECT%20(24).png) -->
 
 
-### CITE
+### Citation
 If you find this work useful, please cite using the following:
 
 ```
