@@ -14,7 +14,7 @@ The detailed dataset, methodology, and results will be discussed in the followin
 The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with sample shown below. 
 | **paddy**               | **zoomed-in** | **processed** |
 |---------------------------|------------------|-----------------------|
-| ![assets/paddy.jpg](assets/paddy.jpg) | ![assets/zoomed.jpg](assets/zoomed.jpg) | ![assets/preprocessed.jpg](assets/preprocessed.jpg) |
+| ![assets/paddy.jpg](Assets/paddy.jpg) | ![assets/zoomed.jpg](Assets/zoomed.jpg) | ![assets/preprocessed.jpg](Assets/preprocessed.jpg) |
 
 All images are standardized to a dimensionality of 224 × 224 pixels. Within the dataset, there are 13 distinct rice diseases categorized into three groups:
 1. **Fungal**: Affects the leaf blade, sheath, stem, node, and panicle.
