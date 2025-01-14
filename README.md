@@ -58,14 +58,18 @@ The jpeg images were translated to BGR images before converting to the needed co
 | Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness as   invariant shape descriptors. Vectors were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/\\scipy.special.legendre.html) for Legendre. |
 
 ## Training and Tuning
+`-- in-progress`
 
 ## Experiments
+`-- in-progress`
 
 ## Results and Discussion
+`-- in-progress`
 
 ## Conclusion and Recommendations
+`-- in-progress`
 
-### References
+## References
 
 - *M.A. Gumapac.* Rice: A Filipino Constant, *Bar Digest,* 25(10), 2011, pp. 1337-1342.
 - *Index Mundi.* Philippines Milled Rice Domestic Consumption by Year, Retrieved: April 5, 2014.
@@ -89,9 +93,6 @@ The jpeg images were translated to BGR images before converting to the needed co
 - *Li, L., Jamieson, K., DeSalvo, G., Rostamizadeh, A., \& Talwalkar, A.* Journal of Machine Learning Research, 18(185), 1–52, 2018.
 - *Hosaini, S. J., Alirezaee, S., Ahmadi, M., \& Makki, S. V.-A. D.* Comparison of the Legendre, Zernike and Pseudo-Zernike Moments for Feature Extraction in Iris Recognition. *2013 5th International Conference on Computational Intelligence and Communication Networks (CICN),* pp. 483–487. DOI: 10.1109/CICN.2013.54, 2013.
 - *Hupkens, Th. M.* Legendre Moments of Colour Images. *Netherlands Defence Academy,* 2009.
-
-
--- in-progress
 
 <!-- 
 ![Resources/[AI%20201]%20MINIPROJECT%20(1).png](Resources/[AI%20201]%20MINIPROJECT%20(1).png)
