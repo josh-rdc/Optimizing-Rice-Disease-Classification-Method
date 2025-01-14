@@ -10,9 +10,38 @@ This project introduces a novel and efficient approach for classifying 13 rice d
 The detailed dataset, methodology, and results will be discussed in the following sections.
 
 
-## 
+## Dataset
+The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with sample shown below. 
+| **paddy**               | **zoomed-in** | **processed** |
+|---------------------------|------------------|-----------------------|
+| ![assets/paddy.jpg](assets/paddy.jpg) | ![assets/zoomed.jpg](assets/zoomed.jpg) | ![assets/preprocessed.jpg](assets/preprocessed.jpg) |
+
+All images are standardized to a dimensionality of 224 × 224 pixels. Within the dataset, there are 13 distinct rice diseases categorized into three groups:
+1. **Fungal**: Affects the leaf blade, sheath, stem, node, and panicle.
+2. **Bacterial**: Affects the leaf blade.
+3. **Viral**: Affects the leaf blade and sheath.
+
+The `resized_raw_images` folder, which consists of original images for all 14 classes, including 13 diseases and 1 healthy class, was utilized. This subset has undergone cleaning and evaluation by other users, ensuring the removal of near-duplicate images from different classes. The dataset, as summarized in below, is balanced across the classes, providing a comprehensive representation of the different rice plant conditions.
+
+| **Disease**               | **Class Number** | **Number of Images** |
+|---------------------------|------------------|-----------------------|
+| Bacterial leaf blight     | 0                | 97                    |
+| Bacterial leaf streak     | 1                | 99                    |
+| Bakanae                   | 2                | 100                   |
+| Brown spot                | 3                | 100                   |
+| Grassy stunt virus        | 4                | 100                   |
+| Healthy rice plant        | 5                | 100                   |
+| Narrow brown spot         | 6                | 98                    |
+| Ragged stunt virus        | 7                | 100                   |
+| Rice blast                | 8                | 98                    |
+| Rice false smut           | 9                | 99                    |
+| Sheath blight             | 10               | 98                    |
+| Sheath rot                | 11               | 91                    |
+| Stem rot                  | 12               | 100                   |
+| Tungro virus              | 13               | 100                   |
 
 
+<!-- 
 ![Resources/[AI%20201]%20MINIPROJECT%20(1).png](Resources/[AI%20201]%20MINIPROJECT%20(1).png)
 ![Resources/[AI%20201]%20MINIPROJECT%20(2).png](Resources/[AI%20201]%20MINIPROJECT%20(2).png)
 ![Resources/[AI%20201]%20MINIPROJECT%20(3).png](Resources/[AI%20201]%20MINIPROJECT%20(3).png)
@@ -36,7 +65,7 @@ The detailed dataset, methodology, and results will be discussed in the followin
 ![Resources/[AI%20201]%20MINIPROJECT%20(21).png](Resources/[AI%20201]%20MINIPROJECT%20(21).png)
 ![Resources/[AI%20201]%20MINIPROJECT%20(22).png](Resources/[AI%20201]%20MINIPROJECT%20(22).png)
 ![Resources/[AI%20201]%20MINIPROJECT%20(23).png](Resources/[AI%20201]%20MINIPROJECT%20(23).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(24).png](Resources/[AI%20201]%20MINIPROJECT%20(24).png)
+![Resources/[AI%20201]%20MINIPROJECT%20(24).png](Resources/[AI%20201]%20MINIPROJECT%20(24).png) -->
 
 
 ### CITE
