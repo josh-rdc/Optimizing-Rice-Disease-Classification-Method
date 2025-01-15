@@ -35,7 +35,11 @@ All images are standardized to a dimensionality of 224 × 224 pixels. Within the
 2. **Bacterial**: Affects the leaf blade.
 3. **Viral**: Affects the leaf blade and sheath.
 
-The `resized_raw_images` folder, which consists of original images for all 14 classes, including 13 diseases and 1 healthy class, was utilized. This subset has undergone cleaning and evaluation by other users, ensuring the removal of near-duplicate images from different classes. The dataset, as summarized in below, is balanced across the classes, providing a comprehensive representation of the different rice plant conditions.
+The `resized_raw_images` folder, which consists of original images for all 14 classes, including 13 diseases and 1 healthy class, was utilized. This subset has undergone cleaning and evaluation by other users, ensuring the removal of near-duplicate images from different classes. 
+
+<details close>
+<summary>Images per class</summary>
+The dataset, as summarized in below, is balanced across the classes, providing a comprehensive representation of the different rice plant conditions.
 
 | **Disease**               | **Class Number** | **Number of Images** |
 |---------------------------|------------------|-----------------------|
@@ -53,6 +57,7 @@ The `resized_raw_images` folder, which consists of original images for all 14 cl
 | Sheath rot                | 11               | 91                    |
 | Stem rot                  | 12               | 100                   |
 | Tungro virus              | 13               | 100                   |
+</details>
 
 ## Feature Extraction and Processing
 The jpeg images were translated to BGR images before converting to the needed color space to extract the input features for the model. The conversion was done by making use of OpenCV’s [CV2](https://docs.opencv.org/3.4/d8/d01/group\_\_imgproc\\\_\_color\_\_conversions.html). Specific details of the color spaces used to extract each feature are detailed in the table below:
