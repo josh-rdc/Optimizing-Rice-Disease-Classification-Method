@@ -24,6 +24,8 @@ The detailed dataset, methodology, and results will be discussed in the followin
 - [References](#references)
 - [Citation](#citation)
 
+You may also check the [slide deck](https://github.com/josh-rdc/Optimizing-Rice-Disease-Classification-Method/tree/main/Deck).
+
 ## Dataset
 The dataset used in this study was retrieved from [Kaggle, originally from Omdena’s Local Chapter project- Creating a Rice Disease Classifier using Open Source Data and Computer Vision](https://www.kaggle.com/datasets/shrupyag001/philippines-rice-diseases), comprises two folders, namely `extra_resized_raw_images` and `resized_raw_images`, each containing diverse images of rice plants (paddy images, zoomed-in images, processed images) with samples shown below. 
 | **paddy**               | **zoomed-in** | **processed** |
