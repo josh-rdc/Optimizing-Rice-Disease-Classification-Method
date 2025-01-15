@@ -1,4 +1,7 @@
 # Optimizing rice disease classification: A comparative study of different color, shape and texture features
+<a href="https://doi.org/10.1109/ICCI60780.2024.10532443" target="blank">
+    <img src="https://img.shields.io/badge/DOI-10.1109%2FICCI60780.2024.10532443-blue" alt="DOI" height="20" />
+</a>
 
 ## Overview
 ![GraphicalAbstract/GraphicalAbstract.png](GraphicalAbstract/GraphicalAbstract.png)
