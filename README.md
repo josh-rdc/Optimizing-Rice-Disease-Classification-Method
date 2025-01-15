@@ -133,11 +133,11 @@ Similarly, the SVM model showed promising results. Initially, the model achieved
 
 Additional analysis using confusion matrices shown below revealed the top-performing classes for both models:
 
-![Assets\ConfusionMatrixANN.png](Assets\ConfusionMatrixANN.png)
+![Assets/ConfusionMatrixANN.png](Assets/ConfusionMatrixANN.png)
 
 - **ANN:** Narrow brown spot (class 6), bakanae (class 2), and sheath rot (class 11) exhibited minimal classification errors.
 
-![Assets\ConfusionMatrixSVM.png](Assets\ConfusionMatrixSVM.png)
+![Assets/ConfusionMatrixSVM.png](Assets/ConfusionMatrixSVM.png)
 
 - **SVM:** Bakanae (class 2), narrow brown spot (class 6), ragged stunt virus (class 7), and tungro virus (class 13) had the highest class accuracies.
 
