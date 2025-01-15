@@ -122,7 +122,10 @@ To assess the effectiveness of the input features and compare the proposed metho
 `-- in-progress`
 
 ## Conclusion and Recommendations
-`-- in-progress`
+1. On experiment 1, initial models with selected features showed minimal change for ANN but a notable increase for SVM. Subsequently, tuned models achieved **83.33% accuracy for ANN and 86.23% for SVM, emphasizing SVM's effectiveness with high-dimensional datasets**.
+2. Result of Experiment 2 shows that the proposed methodology demonstrate **success particularly when dealing with a limited number of classes and less variability in images.**
+3. Result of Experiment 3 revealed great results when ensuring that classes only have one type of image achieving a **95.74% accuracy for SVM and for 90.78% ANN.**
+4. The proposed method effectively classifies a diverse dataset of rice disease images, even common paddy shots, while using classical model without pre-processing or complex computations by emphasizing global features such as **Haralick Texture, Color Histogram, Moments, and Orthogonal Image Moment, showcasing its significant potential.**
 
 ## References
 
