@@ -110,19 +110,13 @@ To assess the effectiveness of the input features and compare the proposed metho
 
 ### Experiment 1: Assessing Generalizability Across Diverse Dataset and Multiple Classes
 
-```
-This experiment leverages the original dataset, consisting of 14 classes with diverse image types. The dataset is partitioned into 80% training (1,024 diseased and 80 non-diseased rice images) and 20% testing (256 diseased and 20 non-diseased rice images). The goal is to assess the models' ability to generalize across a wide range of classes and image variations, examining whether the selected features are sufficient for achieving robust performance using ANN and SVM.
-```
+`This experiment leverages the original dataset, consisting of 14 classes with diverse image types. The dataset is partitioned into 80% training (1,024 diseased and 80 non-diseased rice images) and 20% testing (256 diseased and 20 non-diseased rice images). The goal is to assess the models' ability to generalize across a wide range of classes and image variations, examining whether the selected features are sufficient for achieving robust performance using ANN and SVM.`
 
 ### Experiment 2: Comparative Evaluation with a Previous Local Study
-```
-The second experiment creates a new dataset, containing three classes—brown spot, bacterial leaf blight, and rice blast— created to replicate a setting from a previous local study. Each class includes 50 randomly selected images, focusing on the rice plant and excluding paddy images. The dataset was also split into 80% training and 20% testing. This experiment aims to benchmark the study's ANN and SVM performance against the local study, which achieved 100% accuracy using ANN for the same three rice diseases.
-```
+`The second experiment creates a new dataset, containing three classes—brown spot, bacterial leaf blight, and rice blast— created to replicate a setting from a previous local study. Each class includes 50 randomly selected images, focusing on the rice plant and excluding paddy images. The dataset was also split into 80% training and 20% testing. This experiment aims to benchmark the study's ANN and SVM performance against the local study, which achieved 100% accuracy using ANN for the same three rice diseases.`
 
 ### Experiment 3: Assessing Model Performance on a controlled dataset
-```
-The third experiment mirrors the first in its 14-class structure but minimizes variability within each class by including only zoomed-in or paddy-shot images. Each class contains 50 randomly selected images, ensuring uniformity in magnification. This experiment investigates how reducing image variability within classes impacts the performance of ANN and SVM, using the results from the first experiment as a benchmark.
-```
+`The third experiment mirrors the first in its 14-class structure but minimizes variability within each class by including only zoomed-in or paddy-shot images. Each class contains 50 randomly selected images, ensuring uniformity in magnification. This experiment investigates how reducing image variability within classes impacts the performance of ANN and SVM, using the results from the first experiment as a benchmark.`
 
 ## Results and Discussion
 `-- in-progress`
