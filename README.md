@@ -3,6 +3,10 @@
     <img src="https://img.shields.io/badge/DOI-10.1109%2FICCI60780.2024.10532443-blue" alt="DOI" height="20" />
 </a>
 
+**Published in:** [2024 IEEE International Conference on Cybernetics and Innovations (ICCI)](https://ieeexplore.ieee.org/xpl/conhome/10532250/proceeding)  
+**Year:** 2024  
+**Conference Location:** Chonburi, Thailand  
+
 ## Overview
 ![GraphicalAbstract/GraphicalAbstract.png](GraphicalAbstract/GraphicalAbstract.png)
 
