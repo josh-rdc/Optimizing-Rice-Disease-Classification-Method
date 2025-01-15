@@ -61,7 +61,7 @@ The dataset, as summarized in below, is balanced across the classes, providing a
 </details>
 
 ## Feature Extraction and Processing
-The jpeg images were translated to BGR images before converting to the needed color space to extract the input features for the model. The conversion was done by making use of OpenCV’s [CV2](https://docs.opencv.org/3.4/d8/d01/group\_\_imgproc\\\_\_color\_\_conversions.html). Specific details of the color spaces used to extract each feature are detailed in the table below:
+The jpeg images were translated to BGR images before converting to the needed color space to extract the input features for the model. The conversion was done by making use of [OpenCV’s CV2](https://docs.opencv.org/3.4/de/d25/imgproc_color_conversions.html). Specific details of the color spaces used to extract each feature are detailed in the table below:
 
  | **Feature Type**               | **Color Space** | **Details** |
 |---------------------------|------------------|-----------------------|
@@ -70,12 +70,12 @@ The jpeg images were translated to BGR images before converting to the needed co
 | Color Moments |	RGB, HSV, LAB |	Offers compact color representation through statistical measures such as mean, variance, skewness, and kurtosis. Each value were computed for each channel using [NumPy](https://numpy.org/). |
 | Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness as   invariant shape descriptors. Vectors were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.legendre.html) for Legendre. |
 
-All the feature are then concatenated into a single dataframe and normalized using [sklearn’s minmax scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html). The class names are then converted into integers for model training using [sklearn’s label encoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) to create the final dataframe.
+All the feature are then concatenated into a single dataframe and normalized using [Scikit-learn’s MinMax Scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html). The class names are then converted into integers for model training using [Scikit-learn’s Label Encoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) to create the final dataframe.
 
 ## Training and Tuning
 
 ### Artificial Neural Network (ANN)
-The implementation of the Artificial Neural Network (ANN) was carried out using [Keras from TensorFlow](https://www.tensorflow.org/guide/keras). Initially, a simple model was created with default architecture settings and hyperparameters. This model was trained using the training dataset and evaluated using the test dataset with complete features. 
+The implementation of the ANN was carried out using [Keras from TensorFlow](https://www.tensorflow.org/guide/keras). Initially, a simple model was created with default architecture settings and hyperparameters. This model was trained using the training dataset and evaluated using the test dataset with complete features. 
 
 Subsequently, Principal Component Analysis (PCA) was applied to select a subset of the best features from the initial dataset. These refined features were then used for a second evaluation of the model. Finally, the hyperparameters were tuned using [KerasTuner’s Hyperband](https://keras.io/api/keras_tuner/tuners/hyperband). The model with the tuned hyperparameters was trained on the training dataset and tested using the refined features. 
 
@@ -90,7 +90,7 @@ The hyperparameter configurations are shown below:
 | Batch Size                  | 16, 32, 64, 128           |
 
 ### Support Vector Machine (SVM)
-An initial Support Vector Machine (SVM) model was built using default hyperparameters from the [Scikit-learn library](https://scikit-learn.org/1.5/modules/svm.html). This model was trained on the training dataset with complete features and evaluated for accuracy using the test dataset.
+An initial SVM model was built using default hyperparameters from the [Scikit-learn library](https://scikit-learn.org/1.5/modules/svm.html). This model was trained on the training dataset with complete features and evaluated for accuracy using the test dataset.
 
 Following this, PCA was also applied to select a subset of the best features, which were then used to train the model. The initial SVM model's parameters were retained during this evaluation. The features yielding the best test accuracy were subsequently used for hyperparameter tuning.
 
@@ -176,7 +176,7 @@ To assess the effectiveness of the input features and compare the proposed metho
 ![Resources/[AI%20201]%20MINIPROJECT%20(24).png](Resources/[AI%20201]%20MINIPROJECT%20(24).png) -->
 
 
-### Citation
+## Citation
 If you find this work useful, please cite using the following:
 
 ```
