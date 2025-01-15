@@ -39,6 +39,7 @@ The `resized_raw_images` folder, which consists of original images for all 14 cl
 
 <details close>
 <summary>Images per class</summary>
+
 The dataset, as summarized in below, is balanced across the classes, providing a comprehensive representation of the different rice plant conditions.
 
 | **Disease**               | **Class Number** | **Number of Images** |
@@ -67,13 +68,54 @@ The jpeg images were translated to BGR images before converting to the needed co
 | Texture |	Grayscale |	Derived from the Grey Level Co-occurrence Matrix (GLCM) which were extracted using the [Mahotas library](https://mahotas.readthedocs.io/en/latest/features.html). These features encodes patterns such as contrast, correlation, energy, and homogeneity. |
 | Color Histogram |	RGB, HSV, LAB | Provides pixel distribution across color spaces which were split into individual channels. Calculated by computing the number of pixels for each histogram bins. |
 | Color Moments |	RGB, HSV, LAB |	Offers compact color representation through statistical measures such as mean, variance, skewness, and kurtosis. Each value were computed for each channel using [NumPy](https://numpy.org/). |
-| Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness as   invariant shape descriptors. Vectors were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/\\scipy.special.legendre.html) for Legendre. |
+| Zernike and Legendre Moments | Grayscale, HSV	| Orthogonal moments known to their effectiveness as   invariant shape descriptors. Vectors were extracted using [Mahotas Features](https://mahotas.readthedocs.io/en/latest/features.html) for Zernike and [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.legendre.html) for Legendre. |
+
+All the feature are then concatenated into a single dataframe and normalized using [sklearn’s minmax scaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html). The class names are then converted into integers for model training using [sklearn’s label encoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) to create the final dataframe.
 
 ## Training and Tuning
-`-- in-progress`
+
+### Artificial Neural Network (ANN)
+The implementation of the Artificial Neural Network (ANN) was carried out using [Keras from TensorFlow](https://www.tensorflow.org/guide/keras). Initially, a simple model was created with default architecture settings and hyperparameters. This model was trained using the training dataset and evaluated using the test dataset with complete features. 
+
+Subsequently, Principal Component Analysis (PCA) was applied to select a subset of the best features from the initial dataset. These refined features were then used for a second evaluation of the model. Finally, the hyperparameters were tuned using [KerasTuner’s Hyperband](https://keras.io/api/keras_tuner/tuners/hyperband). The model with the tuned hyperparameters was trained on the training dataset and tested using the refined features. 
+
+The hyperparameter configurations are shown below:
+
+| **Hyperparameter**         | **Values**                 |
+|-----------------------------|----------------------------|
+| Number of Hidden Layers     | 1 to 3                    |
+| Nodes per Hidden Layer      | 32 to 512                 |
+| Activation Functions        | relu, tanh, sigmoid       |
+| Learning Rate               | 0.001, 0.01, 0.1, 0.3, 0.5 |
+| Batch Size                  | 16, 32, 64, 128           |
+
+### Support Vector Machine (SVM)
+An initial Support Vector Machine (SVM) model was built using default hyperparameters from the [Scikit-learn library](https://scikit-learn.org/1.5/modules/svm.html). This model was trained on the training dataset with complete features and evaluated for accuracy using the test dataset.
+
+Following this, PCA was also applied to select a subset of the best features, which were then used to train the model. The initial SVM model's parameters were retained during this evaluation. The features yielding the best test accuracy were subsequently used for hyperparameter tuning.
+
+Hyperparameter tuning was performed using [Scikit-learn’s GridSearchCV](https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html), which tested all possible combinations of the specified hyperparameters to identify the optimal model. The best model was selected based on its accuracy. 
+
+The tested hyperparameters are shown below:
+
+| **Hyperparameter** | **Value** |
+|---------------------|-----------|
+| Kernel              | Linear    |
+| C                   | 1         |
+| Gamma               | scale     |
+
 
 ## Experiments
-`-- in-progress`
+To assess the effectiveness of the input features and compare the proposed methodology to other local and international studies, three (3) experimental setups were explored:
+
+### Experiment 1: Assessing Generalizability Across Diverse Dataset and Multiple Classes
+This experiment leverages the original dataset, consisting of 14 classes with diverse image types. The dataset is partitioned into 80% training (1,024 diseased and 80 non-diseased rice images) and 20% testing (256 diseased and 20 non-diseased rice images). The goal is to assess the models' ability to generalize across a wide range of classes and image variations, examining whether the selected features are sufficient for achieving robust performance using ANN and SVM.
+
+### Experiment 2: Comparative Evaluation with a Previous Local Study
+The second experiment creates a new dataset, containing three classes—brown spot, bacterial leaf blight, and rice blast— created to replicate a setting from a previous local study. Each class includes 50 randomly selected images, focusing on the rice plant and excluding paddy images. The dataset was also split into 80% training and 20% testing. This experiment aims to benchmark the study's ANN and SVM performance against the local study, which achieved 100% accuracy using ANN for the same three rice diseases.
+
+### Experiment 3: Assessing Model Performance on a controlled dataset
+The third experiment mirrors the first in its 14-class structure but minimizes variability within each class by including only zoomed-in or paddy-shot images. Each class contains 50 randomly selected images, ensuring uniformity in magnification. This experiment investigates how reducing image variability within classes impacts the performance of ANN and SVM, using the results from the first experiment as a benchmark.
 
 ## Results and Discussion
 `-- in-progress`
