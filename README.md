@@ -171,13 +171,13 @@ This experiment involved datasets with single variations of images for each clas
 These results highlight the efficacy of the models, particularly when applied to datasets with single variations of images for each class.
 
 ## Conclusion and Recommendations
-In this study, the researchers sought to develop a machine-driven classification method that eliminates the necessity for pre-processing diverse rice images. The focus was on leveraging multiple global features of an image, specifically Haralick Texture Features, Color Histogram, Color Moments, and the Orthogonal Image Moments, Legendre and Zernike Moments. While numerous studies have addressed rice disease classification, efforts were made to broaden the scope by classifying prevalent rice diseases in the Philippines. The classification included a total of 13 classes representing rice diseases affecting various parts of a rice plant, in addition to images of healthy rice plants. Furthermore, 
+Based on the experiments performed, the following conclusion could be drawn:
 1. On experiment 1, initial models with selected features showed minimal change for ANN but a notable increase for SVM. Subsequently, tuned models achieved **83.33% accuracy for ANN and 86.23% for SVM, emphasizing SVM's effectiveness with high-dimensional datasets**.
 2. Result of Experiment 2 shows that the proposed methodology demonstrate **success particularly when dealing with a limited number of classes and less variability in images.**
 3. Result of Experiment 3 revealed great results when ensuring that classes only have one type of image achieving a **95.74% accuracy for SVM and for 90.78% ANN.**
 4. The proposed method effectively classifies a diverse dataset of rice disease images, even common paddy shots, while using classical model without pre-processing or complex computations by emphasizing global features such as **Haralick Texture, Color Histogram, Moments, and Orthogonal Image Moment, showcasing its significant potential.**
 
-Finally, despite conducting feature selection and rigorous optimization, it was difficult to obtain an accuracy of more 90% considering the number of classes on top of the varied images. This initiate a recommendation of perhaps using more global features or performing a more effective feature selection. Additionally, utilizing the algorithm and deploying it may be tried.
+Finally, despite conducting feature selection and rigorous optimization, it was difficult to obtain an accuracy of more 90% considering the number of classes on top of the varied images. This initiate a recommendation of perhaps using more global features or performing a more effective feature selection. Additionally, utilizing the algorithm and deploying the model may be tried.
 
 ## References
 
