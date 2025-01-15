@@ -119,7 +119,53 @@ To assess the effectiveness of the input features and compare the proposed metho
 `The third experiment mirrors the first in its 14-class structure but minimizes variability within each class by including only zoomed-in or paddy-shot images. Each class contains 50 randomly selected images, ensuring uniformity in magnification. This experiment investigates how reducing image variability within classes impacts the performance of ANN and SVM, using the results from the first experiment as a benchmark.`
 
 ## Results and Discussion
-`-- in-progress`
+
+### Experiment 1: Evaluation of ANN and SVM Models
+For ANN, the model achieved an initial accuracy of **80.79%** using the complete set of features and default hyperparameters. After applying PCA to reduce the dimensionality of the data, the accuracy showed minimal change. Hyperparameter tuning using Hyperband resulted in 186 trial combinations, improving accuracy to **83.33%**. These results suggest that either the features extracted from the 14 classes or the feature selection process might not have been optimal.
+
+Similarly, the SVM model showed promising results. Initially, the model achieved an accuracy of **78.62%**, demonstrating its ability to classify rice diseases even without hyperparameter tuning or feature selection. With PCA reducing the features from 933 to 194, the accuracy improved to **84.05%**. Hyperparameter tuning via GridSearch further enhanced the accuracy to **86.23%** by optimizing the kernel, C, and gamma values.
+
+| Model                     | ANN    | SVM    |
+|---------------------------|--------|--------|
+| Complete Features, Untuned Parameters | 80.79% | 78.62% |
+| Selected Features, Untuned Parameters | 80.72% | 84.05% |
+| Selected Features, Tuned Parameters   | 83.33% | 86.23% |
+
+Additional analysis using confusion matrices shown below revealed the top-performing classes for both models:
+![Assets\ConfusionMatrixANN.png](Assets\ConfusionMatrixANN.png)
+- **ANN:** Narrow brown spot (class 6), bakanae (class 2), and sheath rot (class 11) exhibited minimal classification errors.
+![Assets\ConfusionMatrixSVM.png](Assets\ConfusionMatrixSVM.png)
+- **SVM:** Bakanae (class 2), narrow brown spot (class 6), ragged stunt virus (class 7), and tungro virus (class 13) had the highest class accuracies.
+
+---
+
+### Experiment 2: Zoomed-in Image Dataset
+In this experiment, the dataset comprised randomly selected zoomed-in images, resulting in a new dataframe of 933 features. The ANN and SVM models were initially trained and evaluated using these features, followed by PCA-based feature selection and hyperparameter tuning. The results for individual rice diseases and overall performance are presented below:
+
+| Class          | Local Literature (ANN) | Proposed Method (ANN) | Proposed Method (SVM) |
+|----------------|-------------------------|------------------------|------------------------|
+| Brown Spot     | 100%                   | 100%                  | 100%                  |
+| Rice Blast     | 100%                   | 100%                  | 90.91%                |
+| Leaf Blight    | 100%                   | 100%                  | 100%                  |
+| **Overall**    | **100%**               | **100%**              | **96.77%**            |
+
+It can be observed that for both local literature and this study’s proposed method, a **100%** accuracy was obtained when classifying the three classes of rice disease by using ANN. On the other hand, SVM only attained a **90.91%** accuracy when classifying rice blast images. 
+
+---
+
+### Experiment 3: Single Variation Image Dataset
+This experiment involved datasets with single variations of images for each class. Both ANN and SVM models exhibited significantly improved performance compared to Experiment 1, as shown below:
+
+| Model                     | ANN     | SVM     |
+|---------------------------|---------|---------|
+| Complete Features, Untuned Parameters | 90.07%  | 88.65%  |
+| Selected Features, Untuned Parameters | 91.49%  | 93.61%  |
+| Selected Features, Tuned Parameters   | 93.62%  | 93.63%  |
+
+- **ANN:** achieved **90.07%** accuracy with all features and untuned parameters. Feature selection improved accuracy to **91.49%**, and hyperparameter tuning further boosted it to **93.62%**.
+- **SVM:** also performed remarkably well, with an initial accuracy of **88.65%**. Feature selection increased the accuracy to **93.61%**, and grid search optimization resulted in a final accuracy of **93.63%**.
+
+These results highlight the efficacy of the models, particularly when applied to datasets with single variations of images for each class.
 
 ## Conclusion and Recommendations
 1. On experiment 1, initial models with selected features showed minimal change for ANN but a notable increase for SVM. Subsequently, tuned models achieved **83.33% accuracy for ANN and 86.23% for SVM, emphasizing SVM's effectiveness with high-dimensional datasets**.
@@ -151,33 +197,6 @@ To assess the effectiveness of the input features and compare the proposed metho
 - *Li, L., Jamieson, K., DeSalvo, G., Rostamizadeh, A., \& Talwalkar, A.* Journal of Machine Learning Research, 18(185), 1–52, 2018.
 - *Hosaini, S. J., Alirezaee, S., Ahmadi, M., \& Makki, S. V.-A. D.* Comparison of the Legendre, Zernike and Pseudo-Zernike Moments for Feature Extraction in Iris Recognition. *2013 5th International Conference on Computational Intelligence and Communication Networks (CICN),* pp. 483–487. DOI: 10.1109/CICN.2013.54, 2013.
 - *Hupkens, Th. M.* Legendre Moments of Colour Images. *Netherlands Defence Academy,* 2009.
-
-<!-- 
-![Resources/[AI%20201]%20MINIPROJECT%20(1).png](Resources/[AI%20201]%20MINIPROJECT%20(1).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(2).png](Resources/[AI%20201]%20MINIPROJECT%20(2).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(3).png](Resources/[AI%20201]%20MINIPROJECT%20(3).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(4).png](Resources/[AI%20201]%20MINIPROJECT%20(4).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(5).png](Resources/[AI%20201]%20MINIPROJECT%20(5).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(6).png](Resources/[AI%20201]%20MINIPROJECT%20(6).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(7).png](Resources/[AI%20201]%20MINIPROJECT%20(7).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(8).png](Resources/[AI%20201]%20MINIPROJECT%20(8).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(9).png](Resources/[AI%20201]%20MINIPROJECT%20(9).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(10).png](Resources/[AI%20201]%20MINIPROJECT%20(10).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(11).png](Resources/[AI%20201]%20MINIPROJECT%20(11).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(12).png](Resources/[AI%20201]%20MINIPROJECT%20(12).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(13).png](Resources/[AI%20201]%20MINIPROJECT%20(13).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(14).png](Resources/[AI%20201]%20MINIPROJECT%20(14).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(15).png](Resources/[AI%20201]%20MINIPROJECT%20(15).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(16).png](Resources/[AI%20201]%20MINIPROJECT%20(16).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(17).png](Resources/[AI%20201]%20MINIPROJECT%20(17).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(18).png](Resources/[AI%20201]%20MINIPROJECT%20(18).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(19).png](Resources/[AI%20201]%20MINIPROJECT%20(19).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(20).png](Resources/[AI%20201]%20MINIPROJECT%20(20).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(21).png](Resources/[AI%20201]%20MINIPROJECT%20(21).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(22).png](Resources/[AI%20201]%20MINIPROJECT%20(22).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(23).png](Resources/[AI%20201]%20MINIPROJECT%20(23).png)
-![Resources/[AI%20201]%20MINIPROJECT%20(24).png](Resources/[AI%20201]%20MINIPROJECT%20(24).png) -->
-
 
 ## Citation
 If you find this work useful, please cite using the following:
